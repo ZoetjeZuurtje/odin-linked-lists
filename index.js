@@ -15,6 +15,18 @@ class LinkedList {
     }
     node.next = new LinkedListNode(value, null);
   }
+
+  view() {
+    let string = 'head -> ';
+    let node = this.head;
+    while (node != null) {
+      string += `${node.data} -> `;
+      node = node.next;
+    }
+    string += 'null';
+
+    console.log(string);
+  }
 }
 
 class LinkedListNode {
