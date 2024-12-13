@@ -115,12 +115,4 @@ class LinkedListNode {
   }
 }
 
-const list = new LinkedList('test')
-// list.prepend('test1')
-list.prepend('test2')
-list.append('test3')
-list.append('test4')
-list.removeAt(2)
-console.log(list.view())
-console.log(list.find('test'))
-console.log(list.at(list.find('test')))
+export default LinkedList;
