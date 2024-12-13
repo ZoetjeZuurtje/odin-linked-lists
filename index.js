@@ -1,7 +1,16 @@
 class LinkedList {
-  constructor (value) {
-    this.head = new LinkedListNode(value, null)
-    this.size = 1
+  constructor (...values) {
+    this.head = null
+    this.size = values.length !== 0 ? 1 : 0;
+
+    values.forEach((value, index) => {
+      if (index === 0) {
+        this.head = new LinkedListNode(value, null)
+      } else {
+        this.append(value);
+      }
+    })
+    
   }
 
   tail () {
@@ -36,7 +45,7 @@ class LinkedList {
       for (let i = 1; i < index; i++) {
         node = node.next
       }
-      const oldNode = node.next.next
+      const oldNode = node.next
       node.next = new LinkedListNode(value, oldNode)
     } catch (error) {
       console.error('Error: Index out of bounds')
@@ -115,4 +124,7 @@ class LinkedListNode {
   }
 }
 
-export default LinkedList;
+let linkedList = new LinkedList('dog', 'cat', 'fish');
+linkedList.append(74)
+linkedList.insertBefore('twee', 2)
+console.log(linkedList.view())
