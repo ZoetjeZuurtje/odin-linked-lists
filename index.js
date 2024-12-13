@@ -12,7 +12,7 @@ class LinkedList {
     const prev = this.head
     this.head = new LinkedListNode(value, prev)
 
-    this.size += 1
+    this.size++
   }
 
   append (value) {
@@ -22,7 +22,7 @@ class LinkedList {
     }
     node.next = new LinkedListNode(value, null)
 
-    this.size += 1
+    this.size++
   }
 
   insertBefore (value, index) {
@@ -62,6 +62,24 @@ class LinkedList {
     }
     return node.data
   }
+
+  pop () {
+    if (this.size === 1) {
+      this.head = null
+    }
+
+    let node = this.head
+    for (let i = 0; i < this.size - 2; i++) {
+      node = node.next
+    }
+
+    const returnValue = node.next.data
+    node.next = null
+
+    this.size--
+
+    return returnValue
+  }
 }
 
 class LinkedListNode {
@@ -71,12 +89,14 @@ class LinkedListNode {
   }
 }
 
-// const list = new LinkedList('test')
+const list = new LinkedList('test')
 // list.prepend('test1')
-// list.prepend('test2')
-// list.append('test3')
-// list.append('test4')
+list.prepend('test2')
+list.append('test3')
+list.append('test4')
 
-// console.log(list.view())
-// console.log(list.size)
-// console.log(list.tail())
+console.log(list.view())
+console.log(list.size)
+console.log(list.tail())
+console.log(list.pop())
+console.log(list.tail())
