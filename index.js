@@ -1,19 +1,19 @@
 class LinkedList {
   constructor(value) {
-    this.next = new LinkedListNode(value, null);
+    this.head = new LinkedListNode(value, null);
   }
 
   prepend(value) {
-    const prev = this.next;
-    this.next = new LinkedListNode(value, prev);
+    const prev = this.head;
+    this.head = new LinkedListNode(value, prev);
   }
   
   append(value) {
-    let end = this.next;
-    while (end != null) {
-      end = end.next;
+    let node = this.head;
+    while (node.next != null) {
+      node = node.next;
     }
-    end = new LinkedListNode(value, null);
+    node.next = new LinkedListNode(value, null);
   }
 }
 
@@ -24,7 +24,9 @@ class LinkedListNode {
   }
 }
 
-let list = new LinkedList('test');
-list.prepend('test1');
+// let list = new LinkedList('test');
+// // list.prepend('test1');
+// // list.prepend('test2');
+// list.append('test3');
 
-console.log(list);
+// console.log(list.view());
