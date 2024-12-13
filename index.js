@@ -55,6 +55,19 @@ class LinkedList {
     return string
   }
 
+  find(value) {
+    let node = this.head;
+    let counter = 0;
+    while (node.data != value) {
+      if (node.next === null) return null; // Reached end of the list
+      
+      counter++
+      node = node.next;
+    }
+
+    return counter; 
+  }
+
   at (index) {
     let node = this.head
     for (let i = 0; i < index; i++) {
@@ -96,7 +109,5 @@ list.append('test3')
 list.append('test4')
 
 console.log(list.view())
-console.log(list.size)
-console.log(list.tail())
-console.log(list.pop())
-console.log(list.tail())
+console.log(list.find('test'))
+console.log(list.at(list.find('test')))
