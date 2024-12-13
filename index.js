@@ -97,6 +97,15 @@ class LinkedList {
   contains (value) {
     return this.find(value) !== null
   }
+  
+  removeAt (index) {
+    let node = this.head
+    for (let i = 0; i < index - 1; i++) {
+      node = node.next
+    }
+
+    node.next = node.next.next;
+  }
 }
 
 class LinkedListNode {
@@ -111,7 +120,7 @@ const list = new LinkedList('test')
 list.prepend('test2')
 list.append('test3')
 list.append('test4')
-
+list.removeAt(2)
 console.log(list.view())
 console.log(list.find('test'))
 console.log(list.at(list.find('test')))
