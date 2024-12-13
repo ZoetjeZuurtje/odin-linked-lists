@@ -55,17 +55,17 @@ class LinkedList {
     return string
   }
 
-  find(value) {
-    let node = this.head;
-    let counter = 0;
-    while (node.data != value) {
-      if (node.next === null) return null; // Reached end of the list
-      
+  find (value) {
+    let node = this.head
+    let counter = 0
+    while (node.data !== value) {
+      if (node.next === null) return null // Reached end of the list
+
       counter++
-      node = node.next;
+      node = node.next
     }
 
-    return counter; 
+    return counter
   }
 
   at (index) {
@@ -92,6 +92,10 @@ class LinkedList {
     this.size--
 
     return returnValue
+  }
+
+  contains (value) {
+    return this.find(value) !== null
   }
 }
 
